@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 
-class TodoItemsAdapter(private val todoItemsList: ArrayList<String>) : RecyclerView.Adapter<TodoItemsAdapter.ToDoItemHolder>() {
+class TodoItemsAdapter(private val todoItemsList: ArrayList<TodoItem>) : RecyclerView.Adapter<TodoItemsAdapter.ToDoItemHolder>() {
 
     class ToDoItemHolder(val constraintLayout: ConstraintLayout) : RecyclerView.ViewHolder(constraintLayout)
 
@@ -21,7 +21,9 @@ class TodoItemsAdapter(private val todoItemsList: ArrayList<String>) : RecyclerV
         val constraintLayout = holder.constraintLayout
         //
         val nameTextView = constraintLayout.getChildAt(0) as TextView
-        nameTextView.text = todoItemsList[position]
+        val urgentTextView = constraintLayout.getChildAt(1) as TextView
+        nameTextView.text = todoItemsList[position].name
+        urgentTextView.text = if(todoItemsList[position].isUrgent) "!!" else ""
     }
 
     override fun getItemCount(): Int {

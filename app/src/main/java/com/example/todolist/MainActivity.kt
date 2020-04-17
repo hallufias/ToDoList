@@ -10,27 +10,38 @@ import androidx.recyclerview.widget.RecyclerView
 class MainActivity : AppCompatActivity() {
 
     private lateinit var todoItemRecyclerView : RecyclerView
-//    private lateinit var recyclerAdapter: TodoItemsAdapter
+    private lateinit var recyclerAdapter: TodoItemsAdapter //assign var jd object todoitemsadapter
     private lateinit var recyclerLayoutManager : RecyclerView.LayoutManager
+
+    var todoItemsList = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        todoItemsList.add("Buy Groceries")
+        todoItemsList.add("Buy Groceriess")
+        todoItemsList.add("Buy Groceriesss")
 //        todoItemsList.add(TodoItem("Buy Groceries"))
 //        todoItemsList.add(TodoItem("Do Laundry", true))
-//        todoItemsList.add(TodoItem("Play Guiter", false))
+//        todoItemsList.add(TodoItem("Play Guitar", false))
 
-//        todoItemRecyclerView = findViewById(R.id.rvTodoList)
-//
-//        recyclerLayoutManager = LinearLayoutManager(this) //view from top to bottom layout
-//        recyclerAdapter = TodoItemsAdapter(todoItemsList, this)
-//
-//        todoItemRecyclerView.apply {
-//            setHasFixedSize(true)
-//            layoutManager = recyclerLayoutManager
-//            adapter = recyclerAdapter
-//        }
+        todoItemRecyclerView = findViewById(R.id.rvTodoList)
+
+        recyclerLayoutManager = LinearLayoutManager(this) //view from top to bottom layout
+        recyclerAdapter = TodoItemsAdapter(todoItemsList)
+
+        //cara pertama
+        //todoItemRecyclerView.setHasFixedSize(true)
+        //todoItemRecyclerView.layoutManager = recyclerLayoutManager
+        //todoItemRecyclerView.adapter = recyclerAdapter
+
+        //cara kedua
+        todoItemRecyclerView.apply {
+            setHasFixedSize(true)
+            layoutManager = recyclerLayoutManager
+            adapter = recyclerAdapter
+        }
     }
 
     fun navToAddItemPage(view : View){

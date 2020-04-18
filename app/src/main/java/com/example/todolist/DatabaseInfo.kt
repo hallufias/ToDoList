@@ -4,9 +4,9 @@ import android.provider.BaseColumns
 
 object DatabaseInfo {
 
-    const val SQL_CREATE_TABLE_QUERY = "" +
+    const val SQL_CREATE_TABLE_QUERY =
             "CREATE TABLE ${TableInfo.TABLE_NAME} (" +
-            "${BaseColumns._ID} INTEGER PRIMARY KEY" +
+            "${BaseColumns._ID} INTEGER PRIMARY KEY," +
             "${TableInfo.COLUMN_ITEM_NAME} TEXT," +
             "${TableInfo.COLUMN_ITEM_URGENCY} INTEGER," +
             "${TableInfo.COLUMN_ITEM_DATE} TEXT)"

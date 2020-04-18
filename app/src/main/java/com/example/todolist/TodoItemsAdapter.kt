@@ -35,6 +35,12 @@ class TodoItemsAdapter(private val todoItemsList: ArrayList<TodoItem>, val activ
 
         constraintLayout.setOnLongClickListener(View.OnLongClickListener {
             val position = parent.indexOfChild(it)
+
+            //delete from database
+            val todoItemToRemove = activity.todoItemsList[position]
+            val dbo = DatabaseOperations(parent.context)
+            dbo.deleteItem(dbo,todoItemToRemove)
+
             activity.todoItemsList.removeAt(position)
             notifyItemRemoved(position)// the adapter that we remove this item
             true

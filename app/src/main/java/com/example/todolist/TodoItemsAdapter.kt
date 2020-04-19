@@ -37,11 +37,11 @@ class TodoItemsAdapter(private val todoItemsList: ArrayList<TodoItem>, val activ
             val position = parent.indexOfChild(it)
 
             //delete from database
-            val todoItemToRemove = activity.todoItemsList[position]
+            val todoItemToRemove = todoItemsList[position]
             val dbo = DatabaseOperations(parent.context)
             dbo.deleteItem(dbo,todoItemToRemove)
 
-            activity.todoItemsList.removeAt(position)
+            todoItemsList.removeAt(position)
             notifyItemRemoved(position)// the adapter that we remove this item
             true
         })
@@ -55,8 +55,10 @@ class TodoItemsAdapter(private val todoItemsList: ArrayList<TodoItem>, val activ
         //
         val nameTextView = constraintLayout.getChildAt(0) as TextView
         val urgentTextView = constraintLayout.getChildAt(1) as TextView
+        val dateTextView = constraintLayout.getChildAt(2) as TextView
         nameTextView.text = todoItemsList[position].name
         urgentTextView.text = if(todoItemsList[position].isUrgent) "!!" else ""
+        dateTextView.text = todoItemsList[position].dateString
     }
 
     override fun getItemCount(): Int {

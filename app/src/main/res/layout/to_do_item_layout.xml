@@ -14,23 +14,37 @@
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/textView3"
+        app:layout_constraintEnd_toStartOf="@id/tvItemUrgency"
         app:layout_constraintHorizontal_weight="0.65"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="To Do Item Here" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvItemUrgency"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:textAlignment="center"
         android:textColor="#F44336"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="0.35"
+        app:layout_constraintEnd_toStartOf="@id/tvItemDate"
+        app:layout_constraintHorizontal_weight="0.10"
         app:layout_constraintStart_toEndOf="@+id/tvItemDescription"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="!!! here" />
+
+    <TextView
+        android:id="@+id/tvItemDate"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textAlignment="center"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_weight="0.25"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvItemUrgency"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="12/12/2020"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ class TodoItem (var name:String){
 
     var isUrgent = false
     var date = Calendar.getInstance()
+    var dateString : String = getDateAsString()
 
     constructor(name: String, isUrgent : Boolean) : this(name){
         this.isUrgent = isUrgent
@@ -16,6 +17,6 @@ class TodoItem (var name:String){
         val month = date.get(Calendar.MONTH).toString()
         val year = date.get(Calendar.YEAR).toString()
 
-        return "$day/$month/$year"
+        return "$year/$month/$day"
     }
 }
